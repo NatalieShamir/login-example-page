@@ -47,7 +47,7 @@ input[type=submit]:hover{
     function validateInput(inputName) {
       var input = document.forms["login"][inputName].value;
       if (input == "") {
-        alert("Error: missing " + inputName);
+        alert("Error: All fields are required!");
         return false;
       }
       return true;

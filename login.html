@@ -61,6 +61,8 @@ return
     // Define what happens on successful data submission
     XHR.addEventListener( "load", function(event) {
  document.getElementById('queryResponse').value = event.target.responseText;
+ var button = document.getElementById('myButton');
+ button.disabled=false;
     } );
 
     // Define what happens in case of error
@@ -84,6 +86,8 @@ authorValue = document.getElementById("author").value;
     event.preventDefault();
 
     sendData();
+    var button = document.getElementById('myButton');
+    button.disabled=true;
   } );
 } );
 
@@ -105,7 +109,7 @@ authorValue = document.getElementById("author").value;
   <form id="myForm" action"www.google.com" name="login" method="get">
 Username: <input id="author" type="text" name="author">
 Password: <input type="password" name="password">
-<input type= "submit" value="Login">
+<input type= "submit" value="Login" id="myButton">
   </form>
   <textarea id="queryResponse"></textarea>
   </body>

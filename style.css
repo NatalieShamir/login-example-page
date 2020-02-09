@@ -1,0 +1,41 @@
+body {font-family: Arial, Helvetica, sans-serif;background-color:#9fff80;
+}
+form {border: 2px solid #f1f1f1; position: absolute;
+  left: 35%;
+  top: 40%;
+  width: 30%;
+  padding: 12px 20px;}
+  input[type=text], input[type=password] {
+    width: 100%;  padding: 12px 20px;
+
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #e6e6e6;
+  }
+  input[type=submit] {
+    background-color: #2db300;
+    border-radius:28px;
+    border:1px solid #18ab29;
+    display:inline-block;
+    cursor:pointer;
+    font-family:Arial;
+    font-size:16px;
+    padding:14px 70px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+    position: absolute;
+    left: 30%;
+    top: 110%;
+    width: 40%;
+  }
+  input[type=submit]:hover{
+    background-color:#5cbf2a;
+  }
+  textarea[id=queryResponse] {position: absolute;
+    left: 35%;
+    top: 80%;
+    width: 30%;
+    padding: 12px 20px;}

@@ -1,116 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-body {font-family: Arial, Helvetica, sans-serif;background-color:#9fff80;
-}
-form {border: 2px solid #f1f1f1; position: absolute;
-  left: 35%;
-  top: 40%;
-  width: 30%;
-  padding: 12px 20px;}
-input[type=text], input[type=password] {
-  width: 100%;  padding: 12px 20px;
-
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  background-color: #e6e6e6;
-}
-input[type=submit] {
-  background-color: #2db300;
-  border-radius:28px;
-border:1px solid #18ab29;
-display:inline-block;
-cursor:pointer;
-  font-family:Arial;
-font-size:16px;
-padding:14px 70px;
-text-decoration:none;
-text-shadow:0px 1px 0px #2f6627;
-  position: absolute;
-    left: 30%;
-    top: 110%;
-    width: 40%;
-}
-input[type=submit]:hover{
-  background-color:#5cbf2a;
-}
-textarea[id=queryResponse] {position: absolute;
-  left: 35%;
-  top: 80%;
-  width: 30%;
-  padding: 12px 20px;}
-</style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-window.addEventListener( "load", function () {
-  function sendData() {
-if (!validateForm()) {
-return
-}
-
-    const XHR = new XMLHttpRequest();
-
-    // Bind the FormData object and the form element
-    const FD = new FormData( form );
-
-    // Define what happens on successful data submission
-    XHR.addEventListener( "load", function(event) {
- document.getElementById('queryResponse').value = event.target.responseText;
- var button = document.getElementById('myButton');
- button.disabled=false;
-    } );
-
-    // Define what happens in case of error
-    XHR.addEventListener( "error", function( event ) {
-      alert( 'Oops! Something went wrong.' );
-    } );
-
-    // Set up our request
-authorValue = document.getElementById("author").value;
-    XHR.open( "GET", "http://openlibrary.org/search.json?author=" + authorValue );
-
-    // The data sent is what the user provided in the form
-    XHR.send( FD );
-  }
-
-  // Access the form element...
-  let form = document.getElementById( "myForm" );
-
-  // ...and take over its submit event.
-  form.addEventListener( "submit", function ( event ) {
-    event.preventDefault();
-
-    sendData();
-    var button = document.getElementById('myButton');
-    button.disabled=true;
-  } );
-} );
-
-    function validateForm() {
-      return validateInput("author") && validateInput("password")
-    }
-
-    function validateInput(inputName) {
-      var input = document.forms["login"][inputName].value;
-      if (input == "") {
-        alert("Error: All fields are required!");
-        return false;
-      }
-      return true;
-    }
-</script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="login.js"></script>
 </head>
 <body>
   <form id="myForm" action"www.google.com" name="login" method="get">
-Username: <input id="author" type="text" name="author">
-Password: <input type="password" name="password">
-<input type= "submit" value="Login" id="myButton">
+    Username: <input id="author" type="text" name="author">
+    Password: <input type="password" name="password">
+    <input type= "submit" value="Login" id="myButton">
   </form>
   <textarea id="queryResponse"></textarea>
-  </body>
+</body>
 </html>
